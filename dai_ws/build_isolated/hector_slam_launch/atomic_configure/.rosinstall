@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yash/dai_ws/devel_isolated/hector_slam_launch/setup.sh

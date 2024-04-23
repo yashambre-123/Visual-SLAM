@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/yash/dai_ws/devel_isolated/depthai_bridge/lib;/opt/ros/noetic/lib")

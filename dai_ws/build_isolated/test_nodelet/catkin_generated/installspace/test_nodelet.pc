@@ -1,0 +1,8 @@
+prefix=/home/yash/dai_ws/install_isolated
+
+Name: test_nodelet
+Description: Description of test_nodelet
+Version: 1.11.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/yash/catkin_ws/devel
+
+Name: map_my_world
+Description: Description of map_my_world
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

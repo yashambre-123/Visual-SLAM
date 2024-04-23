@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/yash/dai_ws/devel_isolated/rtabmap_legacy/include/**",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_msgs/include/**",
+        "/home/yash/dai_ws/devel_isolated/nodelet_topic_tools/include/**",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_driver/include/**",
+        "/home/yash/dai_ws/devel_isolated/depthai_filters/include/**",
+        "/home/yash/dai_ws/devel_isolated/nodelet/include/**",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_msgs/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/yash/rl_ws/src/AIML-Image-Enhancement/include/**",
+        "/home/yash/dai_ws/src/depthai-ros/depthai_bridge/include/**",
+        "/home/yash/dai_ws/src/depthai-ros/depthai_filters/include/**",
+        "/home/yash/dai_ws/src/depthai-ros/depthai_ros_driver/include/**",
+        "/home/yash/my_ws/src/drone_pkg/include/**",
+        "/home/yash/dai_ws/src/nodelet_core/nodelet/include/**",
+        "/home/yash/dai_ws/src/nodelet_core/nodelet_topic_tools/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_conversions/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_costmap_plugins/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_odom/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_rviz_plugins/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_slam/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_sync/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_util/include/**",
+        "/home/yash/dai_ws/src/rtabmap_ros/rtabmap_viz/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,26 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/yash/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_legacy/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_python/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_msgs/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/nodelet_topic_tools/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_driver/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_filters/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/nodelet/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_msgs/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/yash/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_legacy/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_python/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/rtabmap_msgs/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/nodelet_topic_tools/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_driver/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_filters/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/nodelet/lib/python3/dist-packages",
+        "/home/yash/dai_ws/devel_isolated/depthai_ros_msgs/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

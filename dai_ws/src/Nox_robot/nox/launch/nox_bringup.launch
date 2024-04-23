@@ -1,0 +1,63 @@
+<launch>
+				<!--  ************** Odometry ***************  -->
+	<arg name="gui" default="True" />
+	<param name="use_gui" value="$(arg gui)"/>
+	<param name="robot_description" command="cat $(find nox_description)/urdf/nox.urdf" />
+
+	<node name="map_server" pkg="map_server" type="map_server" args="/home/yash/dai_ws/src/Nox_robot/maps/yash_map.yaml" output="screen" />
+	
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 base_link my_map 100" respawn="true"/>
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_1" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame map 100" respawn="true"/>
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_2" args="0.0 0.0 0.0 0.0 0.0 0.0  odom my_map 100" respawn="true"/>
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_3" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame my_map 100" respawn="true"/>
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_4" args="0.0 0.0 0.0 0.0 0.0 0.0  map my_map 100" respawn="true"/> -->
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_2" args="0.0 0.0 0.0 0.0 0.0 0.0  my_map oak-d-base-frame 100" respawn="true"/> -->
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_2" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame map 100" respawn="true"/> -->
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0  laser oak_cam 100" respawn="true"/> -->
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_1" args="0.0 0.0 0.0 0.0 0.0 0.0  base_link map 100" respawn="true"/> -->
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_2" args="0.0 0.0 0.0 0.0 0.0 0.0  odom oak 100" respawn="true"/>
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_3" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame base_link 100" respawn="true"/> -->
+
+	<node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_4" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame map 100" respawn="true"/>
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_5" args="0.0 0.0 0.0 0.0 0.0 0.0  oak-d-base-frame base_link 100" respawn="true"/> -->
+
+	<!-- <node pkg="tf" type="static_transform_publisher" name="static_tf_base_link_5" args="0.0 0.0 0.0 0.0 0.0 0.0  base_link odom 100" respawn="true"/> -->
+
+	<node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+		<param name="port" value="/dev/ttyACM0"/>
+	</node>
+		
+	<node name="nox_controller" pkg="nox" type="nox_controller">
+		<param name="publish_tf" value="true" />
+    		<param name="publish_rate" value="10.0" />
+    		<param name="linear_scale_positive" value="8" />
+    		<param name="linear_scale_negative" value="8" />
+    		<param name="angular_scale_positive" value="7.2" />
+    		<param name="angular_scale_negative" value="7.2" />
+		<param name="angular_scale_accel" value="0.0" />
+	</node>
+
+	<include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+	
+				<!--  ************** Sensors ***************  -->
+	<!-- <include file="$(find freenect_launch)/launch/freenect.launch" />
+	<node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan">
+		<remap from="image" to="camera/depth/image_raw" />
+	</node> -->
+	
+</launch>

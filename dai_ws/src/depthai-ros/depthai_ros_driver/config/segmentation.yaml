@@ -1,0 +1,6 @@
+/oak:
+    camera_i_enable_imu: false
+    camera_i_enable_ir: true
+    camera_i_nn_type: rgb
+    nn_i_nn_config_path: depthai_ros_driver/segmentation
+    nn_i_enable_passthrough: true

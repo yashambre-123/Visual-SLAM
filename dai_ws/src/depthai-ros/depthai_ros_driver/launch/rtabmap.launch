@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name" default="oak" />
+    <arg name="params_file" default="$(find depthai_ros_driver)/config/rgbd.yaml" />
+
+    <!-- <include file="$(find nox)/launch/nox_navigation.launch" /> -->
+
+    <include file="$(find depthai_ros_driver)/launch/camera.launch">
+        <arg name="name" value="$(arg name)"/>
+        <arg name="params_file" value="$(arg params_file)"/>
+    </include>
+    <node type="rgbd_odometry" name="rgbd_odometry" pkg="rtabmap_odom">
+        <remap from="rgb/image" to="$(arg name)/rgb/image_raw"/>
+        <remap from="rgb/camera_info" to="$(arg name)/rgb/camera_info"/>
+        <remap from="depth/image" to="$(arg name)/stereo/image_raw"/>
+        <param name="frame_id" type="string" value="$(arg name)"/>
+
+        <remap from="odom" to="/yash_controller/odom"/>
+
+        <rosparam param="subscribe_depth">True</rosparam>
+        <rosparam param="approx_sync">True</rosparam>
+        <rosparam param="approx_sync_max_interval">0.01</rosparam>
+        <param name="queue_size" value="320" />
+        
+    </node>
+    <node type="rtabmap" name="rtabmap" pkg="rtabmap_slam">
+        <remap from="rgb/image" to="$(arg name)/rgb/image_raw"/>
+        <remap from="rgb/camera_info" to="$(arg name)/rgb/camera_info"/>
+        <remap from="depth/image" to="$(arg name)/stereo/image_raw"/>
+        <rosparam param="Rtabmap/DetectionRate">3.5</rosparam>
+        <param name="frame_id" type="string" value="$(arg name)"/>
+
+        <remap from="odom" to="/yash_controller/odom"/>
+
+        <param name="Reg/Force3DoF"    value="true" />
+        <!-- <param name="Optimizer/Slam2D" value="true" /> -->
+
+        <param name="Grid/NoiseFilteringRadius" value="0.1"/>
+        <param name="Grid/NoiseFilteringMinNeighbors" value="80000"/>
+
+
+        <!-- <param name="Grid/MaxGroundHeight" value="10"/> -->
+
+
+
+        <!-- <param name="Grid/RangeMax" value="0.01"/> -->
+        <!-- <param name="Grid/RangeMin" value="0.0"/> -->
+        
+        <!-- <remap from="/scan_map" to="/scan"/> -->
+
+        <param name="queue_size" value="320" />
+
+    </node>
+    <node type="rtabmap_viz" name="rtabmap_viz" pkg="rtabmap_viz">
+        <remap from="rgb/image" to="$(arg name)/rgb/image_raw"/>
+        <remap from="rgb/camera_info" to="$(arg name)/rgb/camera_info"/>
+        <remap from="depth/image" to="$(arg name)/stereo/image_raw"/>
+
+        <remap from="odom" to="/yash_controller/odom"/>
+        
+        
+        <param name="queue_size" value="320" />
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_sync/rgbd_sync" output="screen">
+        <remap from="rgb/image" to="$(arg name)/rgb/image_raw"/>
+        <remap from="rgb/camera_info" to="$(arg name)/rgb/camera_info"/>
+        <remap from="depth/image" to="$(arg name)/stereo/image_raw"/>
+        <param name="approx_sync"       value="true"/>
+    </node>
+
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+	<include file="$(find nox)/launch/nox_navigation.launch" />
+
+	<include file="$(find depthai_ros_driver)/launch/rtabmap.launch" />
+
+					<!--  ************** gmapping ***************  -->
+	<!-- <include file="$(find hector_slam_launch)/launch/tutorial.launch" /> -->
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen"/>
+
+				<!--  ************* Visualisation **************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find nox)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
+</launch>
